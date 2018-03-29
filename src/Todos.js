@@ -1,7 +1,7 @@
 import React from 'react';
 import { Todo } from './Todo';
 
-export let Todos = ({
+export const Todos = ({
   todo,
   todos,
   handleChange,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Todos } from './Todos';
+import { addTodo, removeTodo } from './utils'
 
 export class App extends Component {
 
@@ -11,12 +12,10 @@ export class App extends Component {
   handleChange = event => this.setState({ todo: event.target.value });
 
   handleClickAdd = (todo, todos) =>
-    todo && this.setState({ todos: [ ...todos, { text: todo } ], todo: '' })
+    todo && this.setState({ todos: addTodo(todo, todos), todo: '' })
 
-  handleClickDelete = (index, todos) => this.setState({ todos: [
-    ...todos.slice(0, index),
-    ...todos.slice(index + 1)
-  ]})
+  handleClickDelete = (index, todos) => 
+    this.setState({ todos: removeTodo(index, todos)})
 
   render() {
     const { todo, todos } = this.state;
@@ -32,5 +31,4 @@ export class App extends Component {
       />
     );
   }
-
 }

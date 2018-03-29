@@ -5,8 +5,7 @@ import { App } from './App';
 import './styles.css';
 
 const rootDiv = document.createElement('div');
-rootDiv.id = 'root';
 
 document.body.appendChild(rootDiv);
 
-render(<App />, document.querySelector('#root'));
+render(<App />, rootDiv);
